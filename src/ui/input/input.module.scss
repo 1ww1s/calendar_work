@@ -1,0 +1,39 @@
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 46px;
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 4px 16px;
+    position: relative;
+    cursor: text;
+
+    &.focus{
+        box-shadow: 0px 0px 10px 0px var(--blue);
+    }
+
+    .label{
+        position: absolute;
+        font-size: 12px;
+        color: var(--gray);
+        top: 4px;
+        transition: all .2s ease;
+
+        &.active{
+            top: 12px;
+            color: var(--dark-gray);
+            font-size: 16px;
+        }
+    }
+
+    input{
+        border: none;
+        outline: none;
+        margin-top: 16px;
+        background-color: transparent;
+        font-size: 16px;
+    }
+}

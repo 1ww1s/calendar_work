@@ -1,0 +1,15 @@
+
+
+.container{
+    display: flex;
+
+    .month{
+        text-align: center;
+        width: 140px;
+        text-transform: capitalize;
+    }
+
+    svg{
+        cursor: pointer;
+    }
+}

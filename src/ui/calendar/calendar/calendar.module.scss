@@ -1,0 +1,104 @@
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 18px;
+
+    .data{
+        border-radius: 50%;
+    }
+
+    .calendar{
+        
+        li{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            position: relative;
+            z-index: 11;
+
+            .tasks{
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background-color: var(--blue-hover);
+                bottom: -2px;
+            }
+    
+            &::before{
+                position: absolute;
+                top: -15%;
+                z-index: -1;
+                content: "";
+                height: 125%;
+                width: 125%;
+                border-radius: 50%;
+            }
+
+            &:hover{
+                &::before{
+                    outline: 1px solid var(--blue-hover);
+                    border: 1px solid var(--background);
+                }
+            }
+    
+            &.shadow{
+                color: #858585;
+    
+                &:hover{
+                    color: #000;
+                }
+            }
+            
+           
+            &.currentDay{
+                color: #000;
+                &::before{
+                    outline: 1px solid #000;
+                    border: 1px solid var(--background);
+                }
+                &:hover{
+                    &::before{
+                    }
+                }
+                .tasks{
+                    background-color: #fff;
+                }
+            }
+             &.selectedDay{
+                &::before{
+                    outline: 1px solid var(--blue-hover);
+                    border: 1px solid var(--background);
+                }
+            }
+        }
+    
+        .header{
+            display: flex;
+            gap: 20px;
+            margin-bottom: 5px;
+        }
+    
+        .weeksContainer{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            
+            .weeks{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+                
+            .week{
+                display: flex;
+                gap: 20px;
+            }
+        }
+    }
+}

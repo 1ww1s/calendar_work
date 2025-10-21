@@ -1,0 +1,15 @@
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+
+    >input{
+        cursor: pointer;
+    }
+
+    .error{
+        color: var(--red);
+        font-size: 15px;
+    }
+}
