@@ -3,6 +3,7 @@ import classes from './calendar.module.scss'
 import { Switch } from "../switch/Switch";
 import { IData } from "../../../model/types";
 import { getData } from "../../../lib/helpers/getData";
+import { getTextColor } from "../../../lib/helpers/getTextColor";
 
 interface IProps {
     list: IData[];
@@ -41,10 +42,14 @@ export const Calendar: FC<IProps> = ({list, selectedDay, setSelectedDay, selecte
         const getLiShadow = (date: Date, day: number) => {
             const dateStr = `${date.getFullYear()}-${date.toLocaleString('default', {month: '2-digit'})}-${day}`
             const data = getData(list, dateStr)
+            let textColor: string | null = null; 
+            if(data){
+                textColor = getTextColor(data.color)
+            }
             return (
                 <li 
                     onClick={() => onSelected(dateStr)}
-                    style={data ? {backgroundColor: data?.color} : {}}
+                    style={(data && textColor) ? {backgroundColor: data.color, color: textColor} : {}}
                     className={
                         classes.shadow + 
                         (dateStr === selectedDay
@@ -71,10 +76,14 @@ export const Calendar: FC<IProps> = ({list, selectedDay, setSelectedDay, selecte
         const getLi = (date: Date, day: number) => {
             const dateStr = `${date.getFullYear()}-${date.toLocaleString('default', {month: '2-digit'})}-${day}`
             const data = getData(list, dateStr)
+            let textColor: string | null = null; 
+            if(data){
+                textColor = getTextColor(data.color)
+            }
             return (
                 <li 
                     onClick={() => onSelected(dateStr)}
-                    style={{backgroundColor: data?.color}}
+                    style={(data && textColor) ? {backgroundColor: data.color, color: textColor} : {}}
                     className={
                         ((date.getFullYear() === nowDate.getFullYear()) && 
                         (date.getMonth() === nowDate.getMonth()) && 

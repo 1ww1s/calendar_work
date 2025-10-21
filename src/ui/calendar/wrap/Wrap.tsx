@@ -13,7 +13,6 @@ export const Wrap: FC<IProps> = ({selectedId, list}) => {
 
     const [selectedDay, setSelectedDay] = useState<string>("")
     
-
     return (
         <section className={classes.wrapper}>
             <Calendar 

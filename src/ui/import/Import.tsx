@@ -19,22 +19,23 @@ export const Import: FC<IProps> = ({setList}) => {
         const files = e.target.files
         if(files){
             const file = files[0]
-            const read = new FileReader()
-            read.readAsText(file)
-            read.onload = () => {
-                try{
-                    const result: string = read.result as string;
-                    const resultData: IResult = JSON.parse(result)
-                    localStorage.setItem('calendar_work', JSON.stringify(resultData.calendar_work))
-                    localStorage.setItem('list', JSON.stringify(resultData.list))
-                    setList(resultData.list)
-                }
-                catch(e){
-                    setError('Не правильный формат файла')
+            if(file){
+                const read = new FileReader()
+                read.readAsText(file)
+                read.onload = () => {
+                    try{
+                        const result: string = read.result as string;
+                        const resultData: IResult = JSON.parse(result)
+                        localStorage.setItem('calendar_work', JSON.stringify(resultData.calendar_work))
+                        localStorage.setItem('list', JSON.stringify(resultData.list))
+                        setList(resultData.list)
+                    }
+                    catch(e){
+                        setError('Не правильный формат файла')
+                    }
                 }
             }
         }
-
     }
 
     return (
