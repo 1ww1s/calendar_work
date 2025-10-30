@@ -1,0 +1,24 @@
+
+
+.container{
+    display: flex;
+    position: relative;
+    align-items: center;
+    height: 100%;
+    
+    .target{
+        width: 100%;
+        display: flex;
+        padding-right: 10px;
+    }
+
+    .hint{
+        position: absolute;
+        z-index: 9;
+        width: fit-content;
+        padding: 5px 16px;
+        border-radius: 8px;
+        left: calc(100%);
+        background-color: var(--gray-light);
+    }
+}

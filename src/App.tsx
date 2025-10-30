@@ -5,8 +5,8 @@ import { List } from './ui/list/List';
 import { AddList } from './ui/addList/AddList';
 import { IData } from './model/types';
 import { MyButton } from './ui/button';
-import { ExportComponent } from './ui/export/Export';
-import { Import } from './ui/import/Import';
+import { Import } from './ui/import';
+import { ExportComponent } from './ui/export';
 
 function App() {
 
@@ -59,7 +59,7 @@ function App() {
           </section>
           <section className="files">
             <ExportComponent />
-            <Import 
+            <Import
               setList={setList} 
             />
           </section>

@@ -1,8 +1,9 @@
 import { FC, MouseEvent, useState } from "react";
 import { IData } from "../../model/types";
 import classes from './list.module.scss'
-import img from '../../lib/assets/delete.png'
+import deleteImg from '../../lib/assets/delete.png'
 import { listChange } from "../../lib/helpers/listChange";
+import { Hint } from "../hint";
 
 interface IProps {
     list: IData[];
@@ -52,8 +53,8 @@ export const List: FC<IProps> = ({list, setList, selectedId, setSelectedId}) => 
                         key={l.name}
                         onClick={() => setSelectedId(l.id)}
                     >
-                        {l.name} <span style={{backgroundColor: l.color}} className={classes.color}></span>
-                        <img onClick={(e) => onOpen(e, l.id)} src={img} />
+                        {l.name} <Hint label={l.color}><span style={{backgroundColor: l.color}} className={classes.color} /></Hint>
+                        <img onClick={(e) => onOpen(e, l.id)} src={deleteImg} />
                     </li>
                 )}
             </ul>
