@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import { HexColorPicker } from "react-colorful";
+import { MyInput } from "../../input/MyInput";
 
 
 interface IProps {
@@ -10,6 +11,8 @@ interface IProps {
 export const ChooseColor: FC<IProps> = ({color, setColor}) => {
   
   return (
-    <HexColorPicker color={color} onChange={setColor} />
+    <>
+      <HexColorPicker color={color} onChange={setColor} />
+    </>
 )
 };

@@ -43,8 +43,13 @@ export const AddList: FC<IProps> = ({list, setList}) => {
         <section className={classes.container}>
             <h3>Добавить пользователя</h3>
             <section className={classes.data}>
-                <MyInput label="ФИО" value={name} setValue={setVal} />
-                <span className={classes.color} style={{backgroundColor: color}}></span>
+                <section className={classes.wrap}>
+                    <MyInput label="ФИО" value={name} setValue={setVal} />
+                    <section className={classes.wrapColor}>
+                        <MyInput label="Цвет" value={color} setValue={setColor} />
+                        <section className={classes.color} style={{backgroundColor: color}} />
+                    </section>
+                </section>
                 <section className={classes.choose}>
                     <ChooseColor color={color} setColor={setColor} />
                 </section>

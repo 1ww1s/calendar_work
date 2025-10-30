@@ -5,9 +5,23 @@
     width: 100%;
 
     .data{
-         display: flex;
+        display: flex;
         align-items: center;
         gap: 20px;
+
+        .wrap{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 10px;
+
+            .wrapColor{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+        }
+
         .color{
             width: 30px;
             height: 30px;
