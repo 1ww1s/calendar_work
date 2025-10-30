@@ -7,6 +7,7 @@ import { IData } from './model/types';
 import { MyButton } from './ui/button';
 import { Import } from './ui/import';
 import { ExportComponent } from './ui/export';
+import { ImportBackImage } from './ui/importBackImage';
 
 function App() {
 
@@ -62,6 +63,7 @@ function App() {
             <Import
               setList={setList} 
             />
+            <ImportBackImage />
           </section>
         </section>
       </main>

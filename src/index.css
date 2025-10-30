@@ -3,6 +3,13 @@ body{
   padding: 0;
 }
 
+html{
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  background-size: cover;
+  height: 100%;
+}
+
 body{
   --blue-light: #9bc7fe;
   --blue: #2F9BFF;
