@@ -4,6 +4,7 @@ import classes from './list.module.scss'
 import deleteImg from '../../lib/assets/delete.png'
 import { listChange } from "../../lib/helpers/listChange";
 import { Hint } from "../hint";
+import { Modal } from "../modal";
 
 interface IProps {
     list: IData[];
@@ -44,7 +45,7 @@ export const List: FC<IProps> = ({list, setList, selectedId, setSelectedId}) => 
     }
 
     return (
-        <>
+        <section className={classes.wrapper}>
             <h3>Список пользователей</h3>
             <ul className={classes.list}>
                 {list.map(l => 
@@ -61,16 +62,13 @@ export const List: FC<IProps> = ({list, setList, selectedId, setSelectedId}) => 
             {
                 open
                     &&
-                <section className={classes.modal}>
-                    <section className={classes.content}>
-                        <section className={classes.title}>Точно хотите удалить?</section>
-                        <section className={classes.buttons}>
-                            <button onClick={() => setOpen(false)} className={classes.no}>Нет</button>
-                            <button onClick={onDelete} className={classes.yes}>Да</button>
-                        </section>
-                    </section>
-                </section>
+                <Modal 
+                    open={open}
+                    setOpen={setOpen}
+                    question="Точно хотите удалить?"
+                    onDelete={onDelete}
+                />
             }
-        </>
+        </section>
     )
 } 

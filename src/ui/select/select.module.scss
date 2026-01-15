@@ -1,0 +1,56 @@
+
+
+
+.container{
+    position: relative;
+    width: 100%;
+
+    .selected{
+        position: relative;
+        width: 100%;
+        border: 1px solid #000;
+        border-radius: 10px;
+        padding: 10px 16px;
+        height: 40px;
+        cursor: text;
+        background-color: #fff;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        cursor: pointer;
+    }
+
+    .list{
+        position: absolute;
+        z-index: 1;
+        display: none;
+        background-color: #fff;
+        width: 280px;
+        max-height: 200px;
+        overflow: auto;
+        border-radius: 10px;
+        padding: 10px;
+        border: 1px solid #000;
+        top: 44px;
+        flex-direction: column;
+        gap: 6px;
+
+        .item{
+            color: #000;
+            cursor: pointer;
+            transition: all .15s ease;
+
+            &.itemSelected{
+                color: var(--blue);
+            }
+
+            &:hover{
+                color: var(--blue);
+            }
+        }
+
+        &.open{
+            display: flex;
+        }
+    }
+}

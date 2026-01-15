@@ -51,13 +51,11 @@ export const AddList: FC<IProps> = ({list, setList}) => {
                     </section>
                 </section>
                 <section className={classes.choose}>
+                    <MyButton error={error} onClick={check}>
+                        Добавить
+                    </MyButton>
                     <ChooseColor color={color} setColor={setColor} />
                 </section>
-            </section>
-            <section className={classes.button}>
-                <MyButton error={error} onClick={check}>
-                    Добавить
-                </MyButton>
             </section>
         </section>
     )
