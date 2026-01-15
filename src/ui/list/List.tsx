@@ -44,7 +44,7 @@ export const List: FC<IProps> = ({list, setList, selectedId, setSelectedId}) => 
     }
 
     return (
-        <>
+        <section className={classes.wrapper}>
             <h3>Список пользователей</h3>
             <ul className={classes.list}>
                 {list.map(l => 
@@ -71,6 +71,6 @@ export const List: FC<IProps> = ({list, setList, selectedId, setSelectedId}) => 
                     </section>
                 </section>
             }
-        </>
+        </section>
     )
 } 
