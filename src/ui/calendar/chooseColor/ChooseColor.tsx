@@ -11,7 +11,7 @@ export const ChooseColor: FC<IProps> = ({color, setColor}) => {
   
   return (
     <>
-      <HexColorPicker style={{width: '180px', height: '180px'}} color={color} onChange={setColor} />
+      <HexColorPicker style={{width: '210px', height: '210px'}} color={color} onChange={setColor} />
     </>
 )
 };

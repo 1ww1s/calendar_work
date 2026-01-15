@@ -5,8 +5,7 @@ import { List } from './ui/list/List';
 import { AddList } from './ui/addList/AddList';
 import { IData } from './model/types';
 import { MyButton } from './ui/button';
-import { Import } from './ui/import';
-import { ExportComponent } from './ui/export';
+import { Record } from './ui/record/Record';
 
 function App() {
 
@@ -25,24 +24,25 @@ function App() {
   }, [])
 
   return (
-    <section className="App">
-      <main className="main">
-        <section className="calendar">
-          <Calendar 
-            list={list} 
-            selectedId={selectedId} 
-          />
-          {
-            selectedId
-              &&
-            <MyButton 
-              onClick={() => setSelectedId(null)}
-            >
-              Убрать режим выделения
-            </MyButton>
-          }
-        </section>
-        <section className="right">
+    <main className="main">
+      <section className="calendar">
+        <Calendar 
+          list={list} 
+          selectedId={selectedId} 
+          setList={setList} 
+        />
+        {
+          selectedId
+            &&
+          <MyButton 
+            onClick={() => setSelectedId(null)}
+          >
+            Убрать режим выделения
+          </MyButton>
+        }
+      </section>
+      <section className="right">
+        <section className="users">
           <section className="list">
             <List 
               list={list} 
@@ -51,21 +51,16 @@ function App() {
               setSelectedId={setSelectedId} 
             />
           </section>
-          <section>
+          <section className="add">
             <AddList 
               list={list} 
               setList={setList}
             />
           </section>
-          <section className="files">
-            <ExportComponent />
-            <Import
-              setList={setList} 
-            />
-          </section>
         </section>
-      </main>
-    </section>
+        <Record list={list} />
+      </section>
+    </main>
   );
 }
 

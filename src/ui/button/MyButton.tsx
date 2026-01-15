@@ -8,8 +8,6 @@ interface IProps{
 
 export const MyButton: FC<IProps & PropsWithChildren> = ({onClick, error, children}) => {
 
-
-
     return (
         <section className={classes.container}>
             <button onClick={onClick} >{children}</button>

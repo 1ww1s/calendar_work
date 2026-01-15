@@ -1,0 +1,1 @@
+export { MyInputSimple } from "./MyInputSimple";

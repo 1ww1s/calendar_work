@@ -49,13 +49,11 @@ export const AddList: FC<IProps> = ({list, setList}) => {
                         <MyInput label="Цвет" value={color} setValue={setColor} />
                         <section className={classes.color} style={{backgroundColor: color}} />
                     </section>
-                    <section className={classes.button}>
-                        <MyButton error={error} onClick={check}>
-                            Добавить
-                        </MyButton>
-                    </section>
                 </section>
                 <section className={classes.choose}>
+                    <MyButton error={error} onClick={check}>
+                        Добавить
+                    </MyButton>
                     <ChooseColor color={color} setColor={setColor} />
                 </section>
             </section>
