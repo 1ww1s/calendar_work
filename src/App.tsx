@@ -6,6 +6,7 @@ import { AddList } from './ui/addList/AddList';
 import { IData } from './model/types';
 import { MyButton } from './ui/button';
 import { Record } from './ui/record/Record';
+import { Author } from './ui/author';
 
 function App() {
 
@@ -24,43 +25,46 @@ function App() {
   }, [])
 
   return (
-    <main className="main">
-      <section className="calendar">
-        <Calendar 
-          list={list} 
-          selectedId={selectedId} 
-          setList={setList} 
-        />
-        {
-          selectedId
-            &&
-          <MyButton 
-            onClick={() => setSelectedId(null)}
-          >
-            Убрать режим выделения
-          </MyButton>
-        }
-      </section>
-      <section className="right">
-        <section className="users">
-          <section className="list">
-            <List 
-              list={list} 
-              setList={setList} 
-              selectedId={selectedId} 
-              setSelectedId={setSelectedId} 
-            />
-          </section>
-          <section className="add">
-            <AddList 
-              list={list} 
-              setList={setList}
-            />
-          </section>
+    <section>
+      <main className="main">
+        <section className="calendar">
+          <Calendar 
+            list={list} 
+            selectedId={selectedId} 
+            setList={setList} 
+          />
+          {
+            selectedId
+              &&
+            <MyButton 
+              onClick={() => setSelectedId(null)}
+            >
+              Убрать режим выделения
+            </MyButton>
+          }
         </section>
-        <Record list={list} />
-      </section>
-    </main>
+        <section className="right">
+          <section className="users">
+            <section className="list">
+              <List 
+                list={list} 
+                setList={setList} 
+                selectedId={selectedId} 
+                setSelectedId={setSelectedId} 
+              />
+            </section>
+            <section className="add">
+              <AddList 
+                list={list} 
+                setList={setList}
+              />
+            </section>
+          </section>
+          <Record list={list} />
+        </section>
+      </main>
+      <Author />
+    </section>
   );
 }
 
