@@ -9,7 +9,7 @@ export interface IData {
 }
 
 export interface IRecord {
-    id: string;
+    id: number;
     name: string;
     sample: string;
     time: string;

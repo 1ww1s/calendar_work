@@ -6,6 +6,7 @@ import { MyInputSimple } from "../inputSimple";
 import { SelectDropdown } from "../select";
 import deleteImg from '../../lib/assets/delete.png'
 import { Modal } from "../modal";
+import { Reorder } from "framer-motion";
 
 interface IProps {
     list: IData[];
@@ -68,8 +69,9 @@ export const Record: FC<IProps> = ({list}) => {
     }
 
     const addRecord = () => {
-        setRecords(records => [...records, {id: String(Date.now()), name: '', sample: '', comment: '', time: ''}])
+        setRecords(records => [...records, {id: Date.now(), name: '', sample: '', comment: '', time: ''}])
     }
+
 
     return (
         <section className={classes.container}>
@@ -91,30 +93,37 @@ export const Record: FC<IProps> = ({list}) => {
                         Комментарий
                     </section>
                 </li>
-                {records.map((record, ind) => 
-                    <li
-                        key={ind} 
-                        className={classes.item}
-                    >
-                        <section className={classes.input}>
-                            <SelectDropdown 
-                                items={list.map(l => l.name)}
-                                selected={record.name}
-                                onSelected={setName(ind)}
-                            />
-                        </section>
-                        <section className={classes.input}>
-                            <MyInputSimple value={record.sample} setValue={setSample(ind)} />
-                        </section>
-                        <section className={classes.input}>
-                            <MyInputSimple value={record.time} setValue={setTime(ind)} />
-                        </section>
-                        <section className={classes.input + ` ${classes.delete}`}>
-                            <MyInputSimple value={record.comment} setValue={setComment(ind)} />
-                            <img onClick={() => onOpen(ind)} src={deleteImg} />
-                        </section>
-                    </li>
-                )}
+                <Reorder.Group values={records} onReorder={setRecords}>
+                    {records.map((record, ind) => 
+                        <Reorder.Item 
+                            key={record.id} 
+                            value={record}  
+                        >
+                            <li
+                                key={ind} 
+                                className={classes.item}
+                            >
+                                <section className={classes.input}>
+                                    <SelectDropdown 
+                                        items={list.map(l => l.name)}
+                                        selected={record.name}
+                                        onSelected={setName(ind)}
+                                    />
+                                </section>
+                                <section className={classes.input}>
+                                    <MyInputSimple value={record.sample} setValue={setSample(ind)} />
+                                </section>
+                                <section className={classes.input}>
+                                    <MyInputSimple value={record.time} setValue={setTime(ind)} />
+                                </section>
+                                <section className={classes.input + ` ${classes.delete}`}>
+                                    <MyInputSimple value={record.comment} setValue={setComment(ind)} />
+                                    <img onClick={() => onOpen(ind)} src={deleteImg} />
+                                </section>
+                            </li>
+                        </Reorder.Item>
+                    )}
+                </Reorder.Group>
             </ul>
             <MyButton onClick={addRecord}>
                 Добавить
